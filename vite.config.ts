@@ -8,6 +8,6 @@ export default defineConfig({
   server: {
     port: 8080,
     host: true,
-    allowedHosts: 'all'
+    allowedHosts: ['all'] // Changed from 'all' string to an array with 'all'
   }
 })
