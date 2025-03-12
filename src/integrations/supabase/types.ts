@@ -9,6 +9,42 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      certificate_requests: {
+        Row: {
+          email: string
+          id: string
+          keywords_used: Json | null
+          name: string
+          phone: string | null
+          profession: string | null
+          requested_at: string | null
+          status: string | null
+          wants_personalized_payment: boolean | null
+        }
+        Insert: {
+          email: string
+          id?: string
+          keywords_used?: Json | null
+          name: string
+          phone?: string | null
+          profession?: string | null
+          requested_at?: string | null
+          status?: string | null
+          wants_personalized_payment?: boolean | null
+        }
+        Update: {
+          email?: string
+          id?: string
+          keywords_used?: Json | null
+          name?: string
+          phone?: string | null
+          profession?: string | null
+          requested_at?: string | null
+          status?: string | null
+          wants_personalized_payment?: boolean | null
+        }
+        Relationships: []
+      }
       certificates: {
         Row: {
           email: string
@@ -123,6 +159,27 @@ export type Database = {
           type?: string
           updated_at?: string | null
           user_id?: string | null
+        }
+        Relationships: []
+      }
+      verification_keywords: {
+        Row: {
+          created_at: string | null
+          first_keyword: string
+          id: string
+          second_keyword: string
+        }
+        Insert: {
+          created_at?: string | null
+          first_keyword: string
+          id?: string
+          second_keyword: string
+        }
+        Update: {
+          created_at?: string | null
+          first_keyword?: string
+          id?: string
+          second_keyword?: string
         }
         Relationships: []
       }
