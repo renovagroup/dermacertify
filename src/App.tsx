@@ -1,25 +1,39 @@
 
-import React from 'react'
+import React, { useState } from 'react'
+import CertificateForm from './components/CertificateForm'
+import CertificateViewer from './components/CertificateViewer'
+import Footer from './components/Footer'
+import Header from './components/Header'
 
 function App() {
+  const [certificateData, setCertificateData] = useState(null)
+
+  const handleSubmitForm = (data) => {
+    setCertificateData(data)
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 flex flex-col items-center justify-center p-4">
-      <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8">
-        <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">DermaCertify</h1>
-        <p className="text-gray-600 text-center text-lg mb-6">
-          Bem-vindo à DermaCertify. Sua plataforma de certificação em dermatologia.
-        </p>
-        <div className="flex justify-center">
-          <a 
-            href="https://github.com/renovagroup/dermacertify" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="bg-primary-500 hover:bg-primary-600 text-white py-2 px-4 rounded-lg transition-colors"
-          >
-            Repositório GitHub
-          </a>
+    <div className="min-h-screen bg-[#fcf9f5] flex flex-col">
+      <Header />
+      
+      <main className="flex-grow flex flex-col items-center justify-center py-8 px-4">
+        <div className="text-center mb-8">
+          <span className="inline-block py-2 px-6 bg-[#f5efe8] text-[#8a7055] rounded-full text-sm">
+            Certificado de Participação
+          </span>
         </div>
-      </div>
+        
+        <div className="w-full max-w-6xl flex flex-col md:flex-row gap-6">
+          <div className="w-full md:w-1/2">
+            <CertificateForm onSubmit={handleSubmitForm} />
+          </div>
+          <div className="w-full md:w-1/2">
+            <CertificateViewer certificateData={certificateData} />
+          </div>
+        </div>
+      </main>
+      
+      <Footer />
     </div>
   )
 }
