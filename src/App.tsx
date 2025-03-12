@@ -1,14 +1,15 @@
 
-import React, { useState } from 'react'
+import { useState } from 'react'
 import CertificateForm from './components/CertificateForm'
 import CertificateViewer from './components/CertificateViewer'
 import Footer from './components/Footer'
 import Header from './components/Header'
+import { CertificateData } from './types/certificate'
 
 function App() {
-  const [certificateData, setCertificateData] = useState(null)
+  const [certificateData, setCertificateData] = useState<CertificateData | null>(null)
 
-  const handleSubmitForm = (data) => {
+  const handleSubmitForm = (data: CertificateData) => {
     setCertificateData(data)
   }
 

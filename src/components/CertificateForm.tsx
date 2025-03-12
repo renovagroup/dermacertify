@@ -1,22 +1,22 @@
+import { useState, ChangeEvent, FormEvent } from 'react'
+import { CertificateFormProps, CertificateData } from '../types/certificate'
 
-import React, { useState } from 'react'
-
-const CertificateForm = ({ onSubmit }) => {
-  const [formData, setFormData] = useState({
+const CertificateForm = ({ onSubmit }: CertificateFormProps) => {
+  const [formData, setFormData] = useState<Omit<CertificateData, 'date'>>({
     fullName: '',
     email: '',
     phone: '',
     profession: ''
   })
   
-  const [countryCode, setCountryCode] = useState('+55')
+  const [countryCode] = useState('+55')
   
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
   }
   
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     onSubmit({
       ...formData,

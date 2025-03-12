@@ -1,7 +1,6 @@
+import { CertificateViewerProps } from '../types/certificate'
 
-import React from 'react'
-
-const CertificateViewer = ({ certificateData }) => {
+const CertificateViewer = ({ certificateData }: CertificateViewerProps) => {
   return (
     <div className="bg-white p-8 rounded-xl shadow-sm h-full flex flex-col items-center justify-center">
       {certificateData ? (
